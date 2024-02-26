@@ -42,11 +42,11 @@ class DragAndDrop extends Component
         $this->name = '';
     }
 
-    public function remove($id): void
+    public function remove($id)
     {
         Task::find($id)->delete();
         $this->attributes['selected_project'] = $this->selectedProject;
-        $this->alert('success', 'Task is deleted!');
+        return redirect(request()->header('Referer'));
     }
 
     public function update($index): void
@@ -60,12 +60,12 @@ class DragAndDrop extends Component
         $this->alert('success', 'Task is edited!');
     }
 
-    public function updateTaskOrder($lists): void
+    public function updateTaskOrder($lists)
     {
         foreach ($lists as $task) {
             Task::find($task['value'])->update(['priority' => $task['order']]);
         }
 
-        $this->alert('success', 'Re-ordering completed!');
+        return redirect(request()->header('Referer'));
     }
 }
