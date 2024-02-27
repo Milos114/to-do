@@ -74,7 +74,7 @@
             </thead>
             <tbody wire:sortable="updateTaskOrder">
             @foreach($tasks as $k => $task)
-                <tr wire:sortable.item="{{$task['id']}}" wire:key="task-{{$task['id']}}"
+                <tr wire:sortable.item="{{$task['id']}}" wire:key="task-{{$k}}"
                     class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         <input wire:model="tasks.{{$k}}.name" wire:change="update({{$task['id']}})" type="text"

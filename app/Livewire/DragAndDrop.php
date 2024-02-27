@@ -25,9 +25,9 @@ class DragAndDrop extends Component
         return view('livewire.drag-and-drop', ['tasks' => $tasks]);
     }
 
-    public function setProject()
+    public function setProject(): void
     {
-        $this->attributes['selected_project'] = $this->selectedProject;
+        $this->resetProject();
     }
 
     public function save(): void
@@ -42,11 +42,11 @@ class DragAndDrop extends Component
         $this->name = '';
     }
 
-    public function remove($id)
+    public function remove($id): void
     {
         Task::find($id)->delete();
-        $this->attributes['selected_project'] = $this->selectedProject;
-        return redirect(request()->header('Referer'));
+        $this->resetProject();
+        $this->alert('success', 'Task is removed!');
     }
 
     public function update($index): void
@@ -57,15 +57,25 @@ class DragAndDrop extends Component
             }
         }
 
+        $this->resetProject();
         $this->alert('success', 'Task is edited!');
     }
 
-    public function updateTaskOrder($lists)
+    public function updateTaskOrder($lists): void
     {
         foreach ($lists as $task) {
             Task::find($task['value'])->update(['priority' => $task['order']]);
         }
 
-        return redirect(request()->header('Referer'));
+        $this->resetProject();
+        $this->alert('success', 'Task is re-ordered!');
+    }
+
+    /**
+     * @return void
+     */
+    public function resetProject(): void
+    {
+        $this->attributes['selected_project'] = $this->selectedProject;
     }
 }
