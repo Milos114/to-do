@@ -17,12 +17,9 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        \Illuminate\Support\Facades\DB::table('projects')->insert([
-            'name' => 'Alpha',
-        ]);
-
-        \Illuminate\Support\Facades\DB::table('projects')->insert([
-            'name' => 'Beta',
+        DB::table('projects')->insert([
+            ['name' => 'Alpha'],
+            ['name' => 'Beta'],
         ]);
     }
 

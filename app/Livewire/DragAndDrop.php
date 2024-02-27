@@ -12,17 +12,14 @@ class DragAndDrop extends Component
     use LivewireAlert;
 
     public string $name = '';
-
     public array $tasks;
-
-    public string $project = '1'; // should be dynamic
-    public $selectedProject = '0';
+    public string $project = '1';
+    public string $selectedProject = '0';
 
     public function render()
     {
-        $tasks = Task::filter($this->attributes)->orderBy('priority')->get()->toArray();
-        $this->tasks = $tasks;
-        return view('livewire.drag-and-drop', ['tasks' => $tasks]);
+        $this->tasks = Task::filter($this->attributes)->orderBy('priority')->get()->toArray();
+        return view('livewire.drag-and-drop');
     }
 
     public function setProject(): void
@@ -35,8 +32,8 @@ class DragAndDrop extends Component
         Project::find($this->project)
             ->tasks()
             ->create([
-            'name' => $this->name
-        ]);
+                'name' => $this->name
+            ]);
 
         $this->resetAttributes();
         $this->alert('success', 'Task is created!');
@@ -52,7 +49,7 @@ class DragAndDrop extends Component
 
     public function update($index): void
     {
-        foreach ($this->tasks as $k => $val) {
+        foreach ($this->tasks as $val) {
             if ($val['id'] === $index) {
                 Task::find($val['id'])->update(['name' => $val['name']]);
             }
@@ -72,9 +69,6 @@ class DragAndDrop extends Component
         $this->alert('success', 'Task is re-ordered!');
     }
 
-    /**
-     * @return void
-     */
     public function resetAttributes(): void
     {
         $this->attributes['selected_project'] = $this->selectedProject;
