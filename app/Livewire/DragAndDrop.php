@@ -27,7 +27,7 @@ class DragAndDrop extends Component
 
     public function setProject(): void
     {
-        $this->resetProject();
+        $this->resetAttributes();
     }
 
     public function save(): void
@@ -38,6 +38,7 @@ class DragAndDrop extends Component
             'name' => $this->name
         ]);
 
+        $this->resetAttributes();
         $this->alert('success', 'Task is created!');
         $this->name = '';
     }
@@ -45,7 +46,7 @@ class DragAndDrop extends Component
     public function remove($id): void
     {
         Task::find($id)->delete();
-        $this->resetProject();
+        $this->resetAttributes();
         $this->alert('success', 'Task is removed!');
     }
 
@@ -57,7 +58,7 @@ class DragAndDrop extends Component
             }
         }
 
-        $this->resetProject();
+        $this->resetAttributes();
         $this->alert('success', 'Task is edited!');
     }
 
@@ -67,14 +68,14 @@ class DragAndDrop extends Component
             Task::find($task['value'])->update(['priority' => $task['order']]);
         }
 
-        $this->resetProject();
+        $this->resetAttributes();
         $this->alert('success', 'Task is re-ordered!');
     }
 
     /**
      * @return void
      */
-    public function resetProject(): void
+    public function resetAttributes(): void
     {
         $this->attributes['selected_project'] = $this->selectedProject;
     }
