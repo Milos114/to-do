@@ -10,16 +10,14 @@
                     <label htmlFor="horizontal-list-react" class="flex items-center w-full px-3 py-2 cursor-pointer">
                         <div class="grid mr-3 place-items-center">
                             <div class="inline-flex items-center">
-                                <label class="relative flex items-center p-0 rounded-full cursor-pointer"
-                                       htmlFor="horizontal-list-react">
+                                <label class="relative flex items-center p-0 rounded-full cursor-pointer" htmlFor="horizontal-list-react">
                                     <input wire:model="project" value="1" id="horizontal-list-react" type="radio"
                                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:before:bg-gray-900 hover:before:opacity-0"/>
-                                    <span
-                                        class="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor">
-                  <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
-                </svg>
-              </span>
+                                    <span class="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor">
+                                          <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
+                                        </svg>
+                                    </span>
                                 </label>
                             </div>
                         </div>
@@ -35,15 +33,13 @@
                             <div class="inline-flex items-center">
                                 <label class="relative flex items-center p-0 rounded-full cursor-pointer"
                                        htmlFor="horizontal-list-vue">
-                                    <input wire:model="project" value="2" id="horizontal-list-vue" type="radio"
-                                           class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:before:bg-gray-900 hover:before:opacity-0"/>
-                                    <span
-                                        class="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor">
-                  <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
-                </svg>
-              </span>
-                </label>
+                                    <input wire:model="project" value="2" id="horizontal-list-vue" type="radio" class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:before:bg-gray-900 hover:before:opacity-0"/>
+                                    <span class="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor">
+                                          <circle data-name="ellipse" cx="8" cy="8" r="8"></circle>
+                                        </svg>
+                                    </span>
+                                </label>
                         </div>
                     </div>
                     <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-400">
@@ -55,7 +51,9 @@
         </div>
 
         <div class="mb-16 text-center">
-            <input wire:model="name" type="text" id="default-input" placeholder="Create task"
+            <input wire:model="name"
+                   type="text" id="default-input"
+                   placeholder="Create task"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </div>
     </form>
